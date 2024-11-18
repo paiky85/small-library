@@ -13,8 +13,15 @@ import * as book_instance_controller from '../controllers/bookinstanceController
 /// BOOK ROUTES ///
 ///////////////////
 
-// GET catalog home page.
+// GET catalog home page summary.
 router.get('/', book_controller.index);
+
+// GET request for list of all Book items.
+router.get('/books', book_controller.book_list);
+
+// GET request for one Book.
+router.get('/books/:id', book_controller.book_detail);
+
 /*
 // POST request for creating Book.
 router.post('/books', book_controller.book_create);
@@ -25,11 +32,6 @@ router.delete('/books/:id/', book_controller.book_delete);
 // PATCH request to update Book.
 router.patch('/books/:id/', book_controller.book_update);
 
-// GET request for one Book.
-router.get('/books/:id', book_controller.book_detail);
-
-// GET request for list of all Book items.
-router.get('/books', book_controller.book_list);
 */
 //
 /////////////////////
