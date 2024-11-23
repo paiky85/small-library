@@ -9,12 +9,19 @@ import * as genre_controller from '../controllers/genreController.js';
 import * as book_instance_controller from '../controllers/bookinstanceController.js';
 
 //
-///////////////////
-/// BOOK ROUTES ///
-///////////////////
+//////////////////
+///  HOMEPAGE  ///
+//////////////////
+//
 
 // GET catalog home page summary.
 router.get('/', book_controller.index);
+
+//
+///////////////////
+/// BOOK ROUTES ///
+///////////////////
+//
 
 // GET request for list of all Book items.
 router.get('/books', book_controller.book_list);
@@ -37,7 +44,14 @@ router.patch('/books/:id/', book_controller.book_update);
 /////////////////////
 /// AUTHOR ROUTES ///
 /////////////////////
-/*
+//
+
+// GET request for list of all Authors.
+router.get('/authors', author_controller.author_list);
+
+// GET request for one Author.
+router.get('/authors/:id', author_controller.author_detail);
+
 // POST request for creating Author.
 router.post('/authors', author_controller.author_create);
 
@@ -47,16 +61,18 @@ router.delete('/authors/:id/', author_controller.author_delete);
 // PATCH request to update Author.
 router.patch('/authors/:id/', author_controller.author_update);
 
-// GET request for one Author.
-router.get('/authors/:id', author_controller.author_detail);
-
-// GET request for list of all Authors.
-router.get('/authors', author_controller.author_list);
-*/
 //
 ////////////////////
 /// GENRE ROUTES ///
 ////////////////////
+//
+
+// GET request for list of all Genre.
+router.get('/genres', genre_controller.genre_list);
+
+// GET request for one Genre.
+router.get('/genres/:id', genre_controller.genre_detail);
+
 /*
 //POST request for creating Genre.
 router.post('/genres', genre_controller.genre_create);
@@ -68,16 +84,13 @@ router.delete('/genres/', genre_controller.genre_delete);
 // PATCH request to update Genre.
 router.patch('/genres/:id/', genre_controller.genre_update);
 
-// GET request for one Genre.
-router.get('/genres/:id', genre_controller.genre_detail);
 
-// GET request for list of all Genre.
-router.get('/genres', genre_controller.genre_list);
 */
 //
 ///////////////////////////
 /// BOOKINSTANCE ROUTES ///
 ///////////////////////////
+//
 /*
 // POST request for creating BookInstance.
 router.post('/copies', book_instance_controller.bookinstance_create);

@@ -23,7 +23,7 @@ export const bookList = asyncHandler(
     ])
 );
 
-export const bookDetail = asyncHandler(async id => {
+export const bookDetails = asyncHandler(async id => {
   const sqlQueryString = `
   SELECT b.id, b.title, b.isbn, b.summary, a.first_name, a.family_name, a.id AS author_id, g.name AS genre_name, g.id AS genre_id 
   FROM book b 

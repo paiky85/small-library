@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import { summaryInfo, bookList, bookDetail } from '../services/bookService.js';
+import { summaryInfo, bookList, bookDetails } from '../services/bookService.js';
 
 // Summary info on homepage -----------------------------------------
 export const index = asyncHandler(async (req, res, next) => {
@@ -22,20 +22,20 @@ export const index = asyncHandler(async (req, res, next) => {
 });
 
 // List of all books ------------------------------------------------
-export const book_list = asyncHandler(async (req, res, next) => {
+export const book_list = asyncHandler(async (req, res) => {
   const [allBooks, allAuthors, allGenres] = await bookList();
 
   res.json({
     title: 'Books',
     bookList: allBooks.rows,
-    authorList: allAuthors.rows,
-    genreList: allGenres.rows,
+    // authorList: allAuthors.rows,
+    // genreList: allGenres.rows,
   });
 });
 
-// Detail of specific book ------------------------------------------
+// Details of specific book -----------------------------------------
 export const book_detail = asyncHandler(async (req, res, next) => {
-  const [book, bookInstances] = await bookDetail(req.params.id);
+  const [book, bookInstances] = await bookDetails(req.params.id);
 
   if (book === null) {
     // No results.
